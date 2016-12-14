@@ -30,7 +30,7 @@ public class Game {
   }
 
   public boolean isFinished() {
-    return (Arrays.equals(word, guessedWord) || wrongGuesses > 10);
+    return (Arrays.equals(word, guessedWord) || wrongGuesses > 9);
   }
 
   public boolean isVictory() {

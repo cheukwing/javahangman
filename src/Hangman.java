@@ -32,7 +32,11 @@ public class Hangman {
 
     } while (!game.isFinished());
 
-    System.out.println("The word was: " + new String(game.getWord()));
+    System.out.println("The word was: " + word);
+    if (word.equals("harambe")) {
+      System.out.println("RIP");
+    }
+
     if (game.isVictory()) {
       System.out.println("Congratulations!");
     } else {
