@@ -1,15 +1,14 @@
-import java.util.Arrays;
-
 public class Hangman {
 
   public static void main(String[] args) {
 
     System.out.println("Welcome to Dodgy Hangman!");
-    String word = Word.randomWord();
+    System.out.println();
+    String word = Util.randomWord();
     Game game = new Game(word);
 
     do {
-      System.out.println(Arrays.toString(game.getGuessedWord()));
+      System.out.println("Word: " + new String(game.getGuessedWord()));
       System.out.println("Input your guess:");
       String guess = IOUtil.readString();
       char c = Character.toLowerCase(guess.charAt(0));
@@ -27,12 +26,13 @@ public class Hangman {
         System.out.println("Incorrect guess!");
       }
 
-      System.out.println("Letters already guessed: " + Arrays.toString(game.getGuessedChars()));
+      System.out.println("Letters already guessed: " + new String(game.getGuessedChars()));
       System.out.println("Wrong guesses: " + game.getWrongGuesses());
+      System.out.println();
 
     } while (!game.isFinished());
 
-    System.out.println("The word was: " + Arrays.toString(game.getWord()));
+    System.out.println("The word was: " + new String(game.getWord()));
     if (game.isVictory()) {
       System.out.println("Congratulations!");
     } else {
