@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Hangman {
 
   public static void main(String[] args) {
@@ -6,16 +8,17 @@ public class Hangman {
     System.out.println();
     String word = Util.randomWord();
     Game game = new Game(word);
+    Scanner sc = new Scanner(System.in);
 
     do {
       System.out.println("Word: " + new String(game.getGuessedWord()));
       System.out.println("Input your guess:");
-      String guess = IOUtil.readString();
+      String guess = sc.next();
       char c = Character.toLowerCase(guess.charAt(0));
 
       while (guess.length() != 1 || !Character.isLetter(c) || game.alreadyGuessed(c)) {
         System.out.println("Please input a valid character:");
-        guess = IOUtil.readString();
+        guess = sc.next();
         c = Character.toLowerCase(guess.charAt(0));
       }
 
@@ -42,7 +45,5 @@ public class Hangman {
     } else {
       System.out.println("You lose!");
     }
-    return;
-
   }
 }

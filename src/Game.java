@@ -9,6 +9,8 @@ public class Game {
   private char[] guessedChars;
   private int index;
 
+  public static final int NUM_WORDS_IN_ALPHABET = 26;
+
   public Game(String word) {
     this.word = word.toCharArray();
     this.wordLength = word.length();
@@ -17,7 +19,7 @@ public class Game {
       this.guessedWord[i] = '*';
     }
     this.wrongGuesses = 0;
-    this.guessedChars = new char[26];
+    this.guessedChars = new char[NUM_WORDS_IN_ALPHABET];
     this.index = 0;
   }
 
